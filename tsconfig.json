@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2020", "DOM"],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": "./build",
+    "declaration": true,
+    "rootDir": "./src",
+    "target": "ES2020",
+    "typeRoots": ["node_modules/@types", "./typings/"],
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "exclude": ["./tests", "node_modules"],
+  "include": ["./src"]
+}
