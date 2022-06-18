@@ -1,10 +1,11 @@
 {
   "name": "@dhruv-m-patel/web-app",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "engines": {
     "node": ">= 14.15.5",
     "npm": ">= 6.14.11"
   },
+  "main": "build/index.js",
   "devDependencies": {
     "@loadable/webpack-plugin": "^5.15.2",
     "@types/compression": "^1.7.2",
