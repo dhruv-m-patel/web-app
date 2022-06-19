@@ -6,9 +6,6 @@ import morgan from 'morgan';
 import session from 'express-session';
 import cors from 'cors';
 import { v4 as uuidV4 } from 'uuid';
-import webpack from 'webpack';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
 import 'fetch-everywhere';
 
 export interface ExtendedRequest extends Request {
@@ -40,7 +37,6 @@ function finalErrorHandler(
 export interface AppOptions {
   paths: {
     routes: string;
-    webpackConfig: string;
     staticDirectories?: Array<string>;
   };
   sessionSecret?: string;
@@ -50,7 +46,7 @@ export interface AppOptions {
 export function configureApp(options: AppOptions) {
   const {
     setup,
-    paths: { routes, staticDirectories, webpackConfig },
+    paths: { routes, staticDirectories },
     sessionSecret,
   } = options;
 
@@ -92,22 +88,6 @@ export function configureApp(options: AppOptions) {
     staticDirectories.forEach((path) => {
       app.use(express.static(path));
     });
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const config = require(webpackConfig);
-  if (process.env.NODE_ENV === 'development') {
-    const compiler = webpack(config);
-    app.use(
-      webpackDevMiddleware(compiler, {
-        stats: { colors: true },
-        publicPath: config.output.publicPath,
-      })
-    );
-    app.use(webpackHotMiddleware(compiler));
-  } else {
-    // If running in non-development mode, expose the public path as static
-    app.use(express.static(config.output.path));
   }
 
   // Support directory-based routing by default

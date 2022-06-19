@@ -26,8 +26,6 @@ const app: Application = configureApp({
   paths: {
     // specify directory containing file-based routing structure for your app
     routes: path.resolve(__dirname, './routes'),
-    // specify your custom webpack config file that overrides the base config
-    webpackConfig: path.resolve(__dirname, '../config/webpack.config.js'),
     // specify static directory where scripts / styles / images would be found
     staticDirectories: [path.resolve(__dirname, '../../static')],
   },
