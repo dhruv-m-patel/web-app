@@ -28,6 +28,7 @@
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.12",
     "@types/express-session": "^1.17.3",
+    "@types/jest": "^28.1.2",
     "@types/morgan": "^1.9.2",
     "@types/node": "^15.14.9",
     "@types/supertest": "^2.0.12",
@@ -77,8 +78,8 @@
     "pretest": "jest --clearCache",
     "prettier:format": "prettier --write .",
     "prettier:verify": "prettier --check .",
-    "test": "jest --runInBand --passWithNoTests",
-    "test:ci": "jest --silent --passWithNoTests --ci --coverage --coverageReporters=text --coverageReporters=text-summary",
-    "test:changed": "jest --silent --passWithNoTests --runInBand --onlyChanged"
+    "test": "jest --runInBand",
+    "test:ci": "jest --silent --ci --coverage --coverageReporters=text --coverageReporters=text-summary",
+    "test:changed": "jest --silent --runInBand --onlyChanged"
   }
 }

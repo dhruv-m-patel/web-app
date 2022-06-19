@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["ES2020", "DOM"],
@@ -10,7 +9,7 @@
     "declaration": true,
     "rootDir": "./src",
     "target": "ES2020",
-    "typeRoots": ["node_modules/@types", "./typings/"],
+    "typeRoots": ["node_modules/@types", "./typings", "jest"],
     "skipLibCheck": true,
     "strict": true
   },

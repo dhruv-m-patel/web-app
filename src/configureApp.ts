@@ -40,7 +40,7 @@ export interface AppOptions {
     staticDirectories?: Array<string>;
   };
   sessionSecret?: string;
-  setup: (app: express.Application) => void;
+  setup?: (app: express.Application) => void;
 }
 
 export function configureApp(options: AppOptions) {
@@ -97,8 +97,10 @@ export function configureApp(options: AppOptions) {
     })
   );
 
-  // Allow consumer to run its own setup adding additional things for server app
-  setup(app);
+  if (typeof setup === 'function') {
+    // Allow consumer to run its own setup adding additional things for server app
+    setup(app);
+  }
 
   // Add final error handler for api endpoints
   app.use(finalErrorHandler);
