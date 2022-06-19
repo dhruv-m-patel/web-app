@@ -1,6 +1,6 @@
 {
   "name": "@dhruv-m-patel/web-app",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "engines": {
     "node": ">= 14.15.5",
     "npm": ">= 6.14.11"
